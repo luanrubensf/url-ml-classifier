@@ -1,0 +1,11 @@
+com
+br
+www
+net
+http
+https
+uk
+io
+in
+api
+cdn

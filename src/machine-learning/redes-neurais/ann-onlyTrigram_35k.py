@@ -98,9 +98,6 @@ df = None
 url_train = url_train.todense()
 n_feat = url_train.shape[1]
 
-url_train = None
-label_train = None
-
 print('Teste shape: ', url_test.shape)
 print('Labels teste shape: ',label_test.shape)
 

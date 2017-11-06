@@ -10,7 +10,7 @@ random_state = 47
 np.random.seed(seed=random_state)
 
 
-df = pd.read_csv('../../data-sets/dmoz.csv', header=None, names=['url', 'category'])
+df = pd.read_csv('./dmoz.csv', header=None, names=['url', 'category'])
 
 df = df.dropna()
 
@@ -92,55 +92,42 @@ urls_tf = None
 data_set = None
 df = None
 
-url_train = url_train[:600000].todense()
-n_feat = url_train.shape[1]
+url_train = url_train[:600000]
+
+url_train = None
+label_train = None
 
 print('Teste shape: ', url_test.shape)
 print('Labels teste shape: ',label_test.shape)
-
-url_test = url_test.todense()
-label_test = label_test
-
 print('Data set teste shape: ', url_test.shape)
 
 #%%
 
 print('\n\n================== Starting testing ==================\n\n')
 
+from sklearn.svm import SVC
+import datetime
 
-import tflearn
-from tflearn.data_utils import to_categorical
+C = 5.5
+gamma = 0.05
+max_iter = 100
 
-#%%
-n_epoch = 50
-classes = 15
-hidden_layer_size = int((n_feat * 2)/ 3 + classes)
-print('hidden layer size: ', hidden_layer_size)
-label_test = to_categorical(label_test, nb_classes=classes)
-#%%
+print('C: ', C)
+print('Gamma: ', gamma)
+print('Max iter: ', max_iter)
 
-# Building deep neural network
-input_layer = tflearn.input_data(shape=[None, n_feat])
-dense1 = tflearn.fully_connected(input_layer, hidden_layer_size, activation='tanh',
-                                 regularizer='L2', weight_decay=0.001)
-dropout1 = tflearn.dropout(dense1, 0.5)
-dense2 = tflearn.fully_connected(dropout1, hidden_layer_size//2, activation='tanh',
-                                 regularizer='L2', weight_decay=0.001)
-dropout2 = tflearn.dropout(dense2, 0.5)
-softmax = tflearn.fully_connected(dropout2, classes, activation='softmax')
+print('Start: ', datetime.datetime.now())
 
-# Regression using SGD with learning rate decay and Top-3 accuracy
-sgd = tflearn.SGD(learning_rate=0.01, lr_decay=0.96, decay_step=1000)
-top_k = tflearn.metrics.Top_k(3)
-net = tflearn.regression(softmax, optimizer=sgd, metric=top_k,
-                         loss='categorical_crossentropy')
+model = SVC(C=C, gamma=gamma,random_state=random_state,max_iter=max_iter)
+model.fit(url_train,label_train)
 
-# Training
-model = tflearn.DNN(net, best_checkpoint_path='./models/model_600k_OnlyTri',
-    max_checkpoints=3,best_val_accuracy=0.3)
+print('Finish: ', datetime.datetime.now())
 
-#%%
+print('Finish training')
 
-#%% FIT E SALVA
-model.fit(url_train, label_train, n_epoch=n_epoch, show_metric=True,
-          run_id='model_600k_OnlyTri', snapshot_epoch=True,validation_set=0.2)
+predictions = model.predict(url_test)
+
+print(classification_report(label_test, predictions))
+
+np.save('./resultados/label_600k_OnlyTri.npy',np.array(label_test))
+np.save('./resultados/saida_600k_OnlyTri.npy',np.array(predictions))

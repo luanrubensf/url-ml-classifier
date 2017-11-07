@@ -13,7 +13,8 @@ O outro conjunto é uma extração do conjunto original, com aproximadamente 35 
 
 ## Métodos
 
-Em breve.
+Foram implementados dois métodos diferentes: redes neurais artificiais e SVM (Support Vector Machines).
+RNA foi implementada utilizando a biblioteca TFLearn. Já o SVM foi implementado utilizando a biblioteca scikit-learn.
 
 ## Resultados 
 

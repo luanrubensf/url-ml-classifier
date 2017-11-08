@@ -11,6 +11,8 @@ O outro conjunto é uma extração do conjunto original, com aproximadamente 35 
 
 ![alt text](https://github.com/luanrubensf/url-ml-classifier/blob/master/doc/data_set_2.png)
 
+Os data sets foram criados com base no [ODP (Open Directory Project)](http://dmoztools.net/).
+
 ## Métodos
 
 Foram implementados dois métodos diferentes: redes neurais artificiais e SVM (Support Vector Machines).

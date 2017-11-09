@@ -29,9 +29,25 @@ RNA foi implementada utilizando a biblioteca TFLearn. Já o SVM foi implementado
 
 ### Precisão por classe
 
+Para o **Conjunto A**: 
 
-| Classe        |  Conjunto A                    |   Conjunto B                  |
-| ------------- | SVM           |   RNA          |  SVM          |   RNA         |
-| ------------- | ------------- | -------------- | ------------- | ------------- |
-| Classe A    |       %       |       %        |       %       |       %       |
-| Classe B    |       %       |       %        |       %       |       %       |
+| Classe        | SVM           |   RNA          |
+| ------------- | ------------- | -------------- |
+| Classe A      |       %       |       %        |
+| Classe B      |       %       |       %        |
+| Classe C      |       %       |       %        |
+| Classe D      |       %       |       %        |
+| Classe E      |       %       |       %        |
+| Classe F      |       %       |       %        |
+
+
+Para o **Conjunto B**: 
+
+| Classe        | SVM           |   RNA          |
+| ------------- | ------------- | -------------- |
+| Classe A      |       %       |       %        |
+| Classe B      |       %       |       %        |
+| Classe C      |       %       |       %        |
+| Classe D      |       %       |       %        |
+| Classe E      |       %       |       %        |
+| Classe F      |       %       |       %        |

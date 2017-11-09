@@ -136,13 +136,12 @@ dense2 = tflearn.fully_connected(dropout1, hidden_layer_size//2, activation='tan
 dropout2 = tflearn.dropout(dense2, 0.5)
 softmax = tflearn.fully_connected(dropout2, classes, activation='softmax')
 
-# Regression using SGD with learning rate decay and Top-3 accuracy
 sgd = tflearn.SGD(learning_rate=0.01, lr_decay=0.96, decay_step=1000)
 top_k = tflearn.metrics.Top_k(3)
 net = tflearn.regression(softmax, optimizer=sgd, metric=top_k,
                          loss='categorical_crossentropy')
 
-# Training
+## Treinamento
 model = tflearn.DNN(net, best_checkpoint_path='./models/model_30k_OnlyTri',
     max_checkpoints=3,best_val_accuracy=0.3)
 

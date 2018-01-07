@@ -17,37 +17,3 @@ Os data sets foram criados com base no [ODP (Open Directory Project)](http://dmo
 
 Foram implementados dois métodos diferentes: redes neurais artificiais e SVM (Support Vector Machines).
 RNA foi implementada utilizando a biblioteca TFLearn. Já o SVM foi implementado utilizando a biblioteca scikit-learn.
-
-## Resultados 
-
-### Acurácia
-
-| Conjunto      |     SVM       |       RNA      |
-| ------------- | ------------- | -------------- |
-| Conjunto A    |       %       |       %        |
-| Conjunto B    |       %       |       %        |
-
-### Precisão por classe
-
-Para o **Conjunto A**: 
-
-| Classe        | SVM           |   RNA          |
-| ------------- | ------------- | -------------- |
-| Classe A      |       %       |       %        |
-| Classe B      |       %       |       %        |
-| Classe C      |       %       |       %        |
-| Classe D      |       %       |       %        |
-| Classe E      |       %       |       %        |
-| Classe F      |       %       |       %        |
-
-
-Para o **Conjunto B**: 
-
-| Classe        | SVM           |   RNA          |
-| ------------- | ------------- | -------------- |
-| Classe A      |       %       |       %        |
-| Classe B      |       %       |       %        |
-| Classe C      |       %       |       %        |
-| Classe D      |       %       |       %        |
-| Classe E      |       %       |       %        |
-| Classe F      |       %       |       %        |
